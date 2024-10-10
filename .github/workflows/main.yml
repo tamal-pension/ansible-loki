@@ -1,0 +1,27 @@
+name: loki playbook on tag
+
+on:
+  push:
+    branches: 
+      - 'test-workflow'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+      - '[0-9]+.[0-9]+.[0-9]+*'
+      - 'v[0-9]+.[0-9]+.[0-9]+-(CR|Beta|milestone)[0-9]*'
+      - '[0-9]+.[0-9]+.[0-9]+-(CR|Beta|milestone)[0-9]*'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  goldenimage:
+    uses: inqwise/ansible-automation-toolkit/.github/workflows/goldenimage-workflow.yml@default
+    with:
+      S3_BASE_PATH: "s3://bootstrap-pension-stg/playbooks"
+      ROLE: "arn:aws:iam::339712742264:role/ansible-playbook-workflow-role"
+      REGION: "eu-west-1"
+      CPU_ARCH: "arm64"
+      OS: "amzn2023"
+      APP: "loki"
+      TOOLKIT_VERSION: "default"

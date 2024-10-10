@@ -1,0 +1,2 @@
+environment_name: pension-prod
+s3_loki: s3://eu-west-1/loki-pension
