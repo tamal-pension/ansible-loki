@@ -5,7 +5,7 @@ TOPIC_NAME = "errors"
 ACCOUNT_ID = "992382682634"
 AWS_REGION = "eu-west-1"
 MAIN_SH_ARGS = <<MARKER
--e "playbook_name=ansible-loki discord_message_owner_name=#{Etc.getpwuid(Process.uid).name}"
+-e "playbook_name=ansible-loki discord_message_owner_name=#{Etc.getpwuid(Process.uid).name}environment_id=pension-stg.local" --tags "installation,configuration"
 MARKER
 NODE_COUNT = 1
 Vagrant.configure("2") do |config|
