@@ -1,3 +1,4 @@
 environment_name: pension-stg
 s3_loki: s3://eu-west-1/loki-pension-stg
 private_domain: pension-stg.local
+internal_base_url: https://internal-pension-stg.s3.amazonaws.com
